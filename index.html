@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Último Episódio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #1c1c1c, #000);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ===== TELA DE SENHA ===== */
+.lock {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.lock-box {
+  max-width: 320px;
+  width: 100%;
+  animation: zoomIn 1s ease;
+}
+
+.lock h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 4px;
+  font-size: 2.3rem;
+}
+
+.lock p {
+  opacity: 0.6;
+}
+
+.lock input {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  background: #111;
+  border: 1px solid #333;
+  color: #fff;
+}
+
+.lock button {
+  width: 100%;
+  margin-top: 15px;
+  padding: 14px;
+  background: #e50914;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ===== CONTEÚDO ===== */
+.hidden { display: none; }
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+  animation: fadeUp 1.2s ease;
+}
+
+.hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  letter-spacing: 4px;
+}
+
+.hero span { color: #e50914; }
+
+.hero p {
+  opacity: 0.7;
+  margin-top: 10px;
+}
+
+.btn {
+  margin-top: 30px;
+  padding: 14px 34px;
+  background: #e50914;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ===== GALERIA ===== */
+.gallery {
+  padding: 20px;
+}
+
+.card {
+  margin-bottom: 50px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 14px;
+  transition: transform 0.5s ease;
+}
+
+.card img:hover {
+  transform: scale(1.03);
+}
+
+.phrase {
+  margin-top: 12px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+/* ===== FINAL ===== */
+.final {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.final h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 3px;
+}
+
+.final p {
+  opacity: 0.6;
+}
+</style>
+</head>
+
+<body>
+
+<audio id="musica" loop>
+  <source src="audio/Nosso Sonho - Claudinho & Buchecha (youtube).mp3" type="audio/mpeg">
+</audio>
+
+<!-- 🔒 TELA DE BLOQUEIO -->
+<div class="lock" id="lock">
+  <div class="lock-box">
+    <h1>ÚLTIMO EPISÓDIO</h1>
+    <p>Conteúdo privado</p>
+    <input type="password" id="senha" placeholder="Senha">
+    <small>Onde tudo começou</small>
+    <button onclick="entrar()">Entrar</button>
+  </div>
+</div>
+
+<!-- 🎬 CONTEÚDO -->
+<div id="conteudo" class="hidden">
+
+<section class="hero">
+  <h1>ÚLTIMO <span>EPISÓDIO</span></h1>
+  <p>Temporada única · Último dia do ano</p>
+  <button class="btn" onclick="document.getElementById('galeria').scrollIntoView({behavior:'smooth'})">
+    Assistir
+  </button>
+</section>
+
+<section class="gallery" id="galeria">
+ <div class="card"><img src="imagens/IMG-20251231-WA0429.jpg">
+  <div class="phrase">Esse dia existiu. E foi real.</div>
+</div> <div class="card"><img src="imagens/IMG-20251231-WA0428.jpg">
+  <div class="phrase">Aqui ainda havia sorriso.</div>
+</div> <div class="card"><img src="imagens/IMG-20251231-WA0427.jpg">
+  <div class="phrase">Nem todo para sempre dura.</div>
+</div> <div class="card"><img src="imagens/IMG-20251231-WA0430.jpg">
+  <div class="phrase">Mas tudo isso valeu.</div></div> <div class="card">
+    <img src="imagens/IMG-20251231-WA0431.jpg"><div class="phrase">Foi simples. Foi nosso.</div>
+  </div> <div class="card"><img src="imagens/IMG-20251231-WA0408.jpg">
+    <div class="phrase">Aqui ainda tinha cuidado.</div>
+  </div> <div class="card"><img src="imagens/IMG-20251231-WA0409.jpg">
+    <div class="phrase">Não apago o que vivi.</div></div> <div class="card">
+      <img src="imagens/IMG-20251231-WA0410.jpg"><div class="phrase">Guardo o que foi bom.</div>
+    </div> <div class="card"><img src="imagens/IMG-20251231-WA0414.jpg">
+      <div class="phrase">Algumas histórias terminam.</div></div> <div class="card">
+        <img src="imagens/IMG-20251231-WA0406.jpg"><div class="phrase">Mas sempre fazem parte.</div>
+        
+      </div>
+</section>
+
+<section class="final">
+  <h2>FIM DO EPISÓDIO</h2>
+  <p>Sem continuações. Sem promessas.</p>
+</section>
+
+</div>
+
+<script>
+function entrar() {
+  const senhaCorreta = "13122019";
+  const senha = document.getElementById("senha").value;
+  const musica = document.getElementById("musica");
+
+  if (senha === senhaCorreta) {
+    document.getElementById("lock").style.display = "none";
+    document.getElementById("conteudo").classList.remove("hidden");
+    musica.volume = 0.4;
+    musica.play();
+  } else {
+    alert("Senha incorreta.");
+  }
+}
+
+/* ANIMAÇÃO AO ROLAR */
+const cards = document.querySelectorAll('.card');
+window.addEventListener('scroll', () => {
+  cards.forEach(card => {
+    const pos = card.getBoundingClientRect().top;
+    if (pos < window.innerHeight - 100) {
+      card.classList.add('show');
+    }
+  });
+});
+</script>
+
+</body>
+</html>
